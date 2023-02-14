@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DropDown</title>
+</head>
+
+<body>
+
+    <label for="wheater Forcast"></label>
+    <select onchange="getValue()" name="weather names" id="wheater">
+        <% data.forEach((data)=> { %>
+            <option value="<%=data.label %>">
+                <%=data.label %>
+            </option>
+            <% }) %>
+    </select>
+    <form action="placeholder" method="GET" id="myForm">
+        <div class="mb-3">
+            <label class="form-label" for="city">CityName</label>
+            <input class="form-control" type="text" id="city" name="city" required>
+
+        </div>
+        <button class="btn btn-success btn-block">Submit</button>
+    </form>
+
+    <script>
+
+        let currentWeather = ''
+        const getValue = () => {
+            let val = document.getElementById("wheater").value;
+            console.log('val', val)
+            currentWeather = val
+
+        }
+        var e = document.querySelector("#wheater");
+        var value = e.value;
+        var text = e.options[e.selectedIndex].text;
+        console.log('text', text)
+
+        const template = (value, val) => `/weather/${val === 'weatherapi forecast' ? 'forecast' : 'current'}?city=${value}`;
+
+        document.getElementById('myForm').addEventListener('submit', function (s) {
+            s.preventDefault();
+            this.action = template(text, currentWeather);
+            this.submit();
+        });
+    </script>
+</body>
+
+</html>
