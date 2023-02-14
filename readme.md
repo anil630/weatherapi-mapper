@@ -1,16 +1,27 @@
-# clone the repository 
-# copy the .env.sample to .env
+### Prerequisite
+Install nodejs 
+- [NodeJS](https://nodejs.org/en/)
 
-# UPDATE THE CONFIGURATION IN .env file 
+- NPM
 
-# install the dependencies  using command npm install 
+Install dependencies
 
-# start the project 
-# npm run start 
+```shell
+npm install
+```
 
-# run the seeders in new tab use this command 
-# npm run seed 
+copy .env.sample to .env 
+update the credentials in .env file 
 
-# open the browser and hit the route 
+Run the script
 
-# http://localhost:3000/weather
+```
+npm run start 
+```
+Run seeders 
+```
+npm run seed
+```
+
+open the browser and hit the url 
+http://localhost:3000/weather
